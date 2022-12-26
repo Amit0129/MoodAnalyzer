@@ -10,7 +10,7 @@ namespace MoodAnalyzer
     public  class MoodAnalyzerBuilder
     {
         string msg;
-        public MoodAnalyzerBuilder() { }
+        
 
         public MoodAnalyzerBuilder(string msg)
         {
@@ -33,7 +33,7 @@ namespace MoodAnalyzer
             }
             catch
             {
-                return "Happy";
+                return "HAPPY";
             }
         }
     }

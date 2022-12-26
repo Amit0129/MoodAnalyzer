@@ -6,8 +6,15 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        [DataRow(null)]
+        public void TestMethod1(string message)
         {
+            string except = "HAPPY";
+            MoodAnalyzerBuilder moodAnalyzerBuilder = new MoodAnalyzerBuilder(message);
+
+            string mood = moodAnalyzerBuilder.AnalyseMood();
+
+            Assert.AreEqual(except, mood);
             
         }
       
