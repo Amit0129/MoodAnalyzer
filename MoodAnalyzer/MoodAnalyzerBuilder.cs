@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,10 @@ namespace MoodAnalyzer
         {
             this.msg = msg;
         }
-        public string  AnalyseMood()
+        
+        public string AnalyseMood(string msg)
         {
-            if (this.msg.Contains("Sad", StringComparison.OrdinalIgnoreCase))
+            if (msg.Contains("Sad", StringComparison.OrdinalIgnoreCase))
             {
                 return "SAD";
             }
