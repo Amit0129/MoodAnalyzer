@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyzer
 {
-    internal class MoodAnalyzerBuilder
+    public  class MoodAnalyzerBuilder
     {
         public string  AnalyseMood(string message)
         {
             if (message.ToUpper().Contains("SAD"))
             {
-                return "Sad Mood";
+                return "SAD";
             }
             if (message.ToUpper().Contains("GOOD"))
             {
-                return "Good Mood";
+                return "GOOD";
             }
             return null;
         }
