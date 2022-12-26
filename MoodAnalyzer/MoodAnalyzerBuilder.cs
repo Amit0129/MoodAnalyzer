@@ -14,9 +14,9 @@ namespace MoodAnalyzer
             {
                 return "SAD";
             }
-            if (message.ToUpper().Contains("GOOD"))
+            else
             {
-                return "GOOD";
+                return "HAPPY";
             }
             return null;
         }

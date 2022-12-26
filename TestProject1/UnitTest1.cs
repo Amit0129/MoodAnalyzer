@@ -14,5 +14,14 @@ namespace TestProject1
 
             Assert.AreEqual("SAD", result);  //Assert
         }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            MoodAnalyzerBuilder obj = new MoodAnalyzerBuilder();
+
+            string result = obj.AnalyseMood("I am in Any Mood");
+
+            Assert.AreEqual("HAPPY", result);
+        }
     }
 }
