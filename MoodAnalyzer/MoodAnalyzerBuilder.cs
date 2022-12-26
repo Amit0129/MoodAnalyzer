@@ -8,9 +8,16 @@ namespace MoodAnalyzer
 {
     public  class MoodAnalyzerBuilder
     {
-        public string  AnalyseMood(string message)
+        string msg;
+        public MoodAnalyzerBuilder() { }
+
+        public MoodAnalyzerBuilder(string msg)
         {
-            if (message.ToUpper().Contains("SAD"))
+            this.msg = msg;
+        }
+        public string  AnalyseMood()
+        {
+            if (this.msg.Contains("Sad", StringComparison.OrdinalIgnoreCase))
             {
                 return "SAD";
             }
