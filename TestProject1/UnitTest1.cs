@@ -6,17 +6,19 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow(null)]
-        public void TestMethod1(string message)
+        public void Given_NULL_Mood_Should_Throw_MoodAnalyszerCustomException()
         {
-            //string except = "HAPPY";
-            //MoodAnalyzerBuilder moodAnalyzerBuilder = new MoodAnalyzerBuilder(message);
-
-            //string mood = moodAnalyzerBuilder.AnalyseMood();
-
-            //Assert.AreEqual(except, mood);
-            
+            try
+            {
+                string message = null;
+                MoodAnalyzerBuilder moodAnalyzer = new MoodAnalyzerBuilder(message);
+                string mood = moodAnalyzer.AnalyseMood();
+            }
+            catch(MoodAnalyszerCustomException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
         }
-      
+
     }
 }
