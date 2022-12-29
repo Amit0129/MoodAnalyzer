@@ -87,5 +87,20 @@ namespace TestProject1
             expected.Equals(obj);
             //Assert.AreEqual(expected,obj);
         }
+        //Tc5.2
+        [TestMethod]
+        public void GivenClassNameWhenImproper_ShouldThrowMoodAnalysisException_UsingParameterizedConstructor()
+        {
+            try
+            {
+                object objFactory = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyzerBuildera", "MoodAnalyzerBuildera","SAD");
+            }
+            catch (MoodAnalyszerCustomException e)
+            {
+                //Assert.AreEqual(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS.ToString(), objFactory);
+                Assert.AreEqual("Class not found", e.Message);
+            }
+
+        }
     }
 }
