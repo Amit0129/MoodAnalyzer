@@ -120,5 +120,18 @@ namespace TestProject1
             string actual = MoodAnalyserFactory.InvokeMethod("AnalyseMood", "HAPPY");
             Assert.AreEqual(expected, actual);
         }
+        //6.2
+        [TestMethod]
+        public void InvokeMethod_GivenImproperMethod_ReturnException()
+        {
+            try
+            {
+                object obj = MoodAnalyserFactory.InvokeMethod("Analysemood", "HAPPY");
+            }
+            catch (MoodAnalyszerCustomException e)
+            {
+                Assert.AreEqual("Method is not found", e.Message);
+            }
+        }
     }
 }
