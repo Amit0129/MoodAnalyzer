@@ -9,7 +9,7 @@ namespace MoodAnalyzer
 {
     public  class MoodAnalyzerBuilder
     {
-        private string message;
+        public string message;
 
 
         public MoodAnalyzerBuilder(string message)

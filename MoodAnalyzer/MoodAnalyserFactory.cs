@@ -81,5 +81,30 @@ namespace MoodAnalyzer
                 return ex.Message;
             }
         }
+        //UC7
+        public static string ChangeMoodDynamically(string variableName, string setValue)
+        {
+            MoodAnalyzerBuilder objMood = new MoodAnalyzerBuilder();
+            Type type = typeof(MoodAnalyzerBuilder);
+            try
+            {
+                PropertyInfo propertyInfo = type.GetProperty("message");
+                propertyInfo.SetValue(objMood, setValue);
+                if (setValue == null)
+                {
+                    throw new MoodAnalyszerCustomException(MoodAnalyszerCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+                }
+                if (propertyInfo == null)
+                {
+                    throw new MoodAnalyszerCustomException(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_FIELD, "Field is not found");
+                   
+                }
+                return objMood.message;
+            }
+            catch (MoodAnalyszerCustomException ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }
