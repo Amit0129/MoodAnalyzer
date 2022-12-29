@@ -78,5 +78,14 @@ namespace TestProject1
             }
 
         }
+        //TC5.1
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
+        {
+            object expected = new MoodAnalyzerBuilder("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyzerBuilder", "MoodAnalyzerBuilder","SAD");
+            expected.Equals(obj);
+            //Assert.AreEqual(expected,obj);
+        }
     }
 }
