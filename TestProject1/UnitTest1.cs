@@ -58,7 +58,6 @@ namespace TestProject1
             }
             catch (MoodAnalyszerCustomException e)
             {
-                //Assert.AreEqual(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS.ToString(), objFactory);
                 Assert.AreEqual("Class not found", e.Message);
             }
 
@@ -73,7 +72,6 @@ namespace TestProject1
             }
             catch (MoodAnalyszerCustomException e)
             {
-                //Assert.AreEqual(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS.ToString(), objFactory);
                 Assert.AreEqual("Constructor is not found", e.Message);
             }
 
@@ -87,7 +85,7 @@ namespace TestProject1
             expected.Equals(obj);
             //Assert.AreEqual(expected,obj);
         }
-        //Tc5.2
+        //TC5.2
         [TestMethod]
         public void GivenClassNameWhenImproper_ShouldThrowMoodAnalysisException_UsingParameterizedConstructor()
         {
@@ -97,8 +95,21 @@ namespace TestProject1
             }
             catch (MoodAnalyszerCustomException e)
             {
-                //Assert.AreEqual(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS.ToString(), objFactory);
                 Assert.AreEqual("Class not found", e.Message);
+            }
+
+        }
+        //TC5.3
+        [TestMethod]
+        public void GivenClassWhenConstructorNotProperShouldThrowException_UsingParameterizedConstructor()
+        {
+            try
+            {
+                object objFactory = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyzer.MoodAnalyzerBuilder", "MoodAnalyzerBuildera", "SAD");
+            }
+            catch (MoodAnalyszerCustomException e)
+            {
+                Assert.AreEqual("Constructor is not found", e.Message);
             }
 
         }
