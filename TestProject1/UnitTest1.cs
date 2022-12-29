@@ -15,7 +15,7 @@ namespace TestProject1
                 MoodAnalyzerBuilder moodAnalyzer = new MoodAnalyzerBuilder(message);
                 string mood = moodAnalyzer.AnalyseMood();
             }
-            catch(MoodAnalyszerCustomException e)
+            catch (MoodAnalyszerCustomException e)
             {
                 Assert.AreEqual("Mood should not be null", e.Message);
             }
@@ -30,11 +30,21 @@ namespace TestProject1
                 MoodAnalyzerBuilder moodAnalyzer = new MoodAnalyzerBuilder(message);
                 string mood = moodAnalyzer.AnalyseMood();
             }
-            catch(MoodAnalyszerCustomException e)
+            catch (MoodAnalyszerCustomException e)
             {
                 Assert.AreEqual("Mood should not be empty", e.Message);
             }
         }
+        //TC4.1
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            string message = null;
+            object expected = new MoodAnalyzerBuilder(message);
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyzerBuilder", "MoodAnalyzerBuilder");
+            expected.Equals(obj);
+            //Assert.AreEqual(expected,obj);
 
+        }
     }
 }

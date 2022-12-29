@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MoodAnalyzer
 {
-    internal class MoodAnalyserFactory
+    public class MoodAnalyserFactory
     {
-        public static object CreateMoodAnalyse(string className, string constructorName)
+        public static object CreateMoodAnalyser(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
             Match result = Regex.Match(className, pattern);
@@ -28,11 +28,14 @@ namespace MoodAnalyzer
                     throw new MoodAnalyszerCustomException(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS, "Class not found");
 
                 }
+
+
             }
             else
             {
                 throw new MoodAnalyszerCustomException(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_METHOD, "Constructor is not found");
             }
         }
+
     }
 }

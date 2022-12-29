@@ -9,31 +9,29 @@ namespace MoodAnalyzer
 {
     public  class MoodAnalyzerBuilder
     {
-        string msg;
-        
+        private string message;
 
-        public MoodAnalyzerBuilder(string msg)
+
+        public MoodAnalyzerBuilder(string message)
         {
-            this.msg = msg;
+            this.message = message;
         }
-        
-        
+        public MoodAnalyzerBuilder()
+        {
+        }
         public string AnalyseMood()
         {
+            
             try
             {
-                if (this.msg.Equals(string.Empty))
+                if (this.message.Equals(string.Empty))
                 {
                     throw new MoodAnalyszerCustomException(MoodAnalyszerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
                 }
-                if (this.msg.Contains("sad"))
-                {
+                if (this.message.Contains("sad"))
                     return "SAD";
-                }
                 else
-                {
                     return "HAPPY";
-                }
             }
             catch (NullReferenceException)
             {
