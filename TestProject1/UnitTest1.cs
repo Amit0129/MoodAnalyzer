@@ -141,5 +141,18 @@ namespace TestProject1
             string actual = MoodAnalyserFactory.ChangeMoodDynamically("message","HAPPY");
             Assert.AreEqual(expected, actual);
         }
+        // TC-7.2
+        [TestMethod]
+        public void ChangeMoodDynamically_GivenImproperField_ReturnException()
+        {
+            try
+            {
+                string except = MoodAnalyserFactory.ChangeMoodDynamically("cool", "HAPPY");
+            }
+            catch(MoodAnalyszerCustomException e)
+            {
+                Assert.AreEqual("Field is not found", e.Message);
+            }
+        }
     }
 }
