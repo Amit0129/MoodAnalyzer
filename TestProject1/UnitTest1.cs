@@ -133,5 +133,13 @@ namespace TestProject1
                 Assert.AreEqual("Method is not found", e.Message);
             }
         }
+        // TC-7.1
+        [TestMethod]
+        public void ChangeMoodDynamically_GivenHappy_ReturnHappy()
+        {
+            string expected = "HAPPY";
+            string actual = MoodAnalyserFactory.ChangeMoodDynamically("message","HAPPY");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

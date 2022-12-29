@@ -9,15 +9,14 @@ namespace MoodAnalyzer
 {
     public  class MoodAnalyzerBuilder
     {
-        public string message;
+        public string message { get; set; }
+        public MoodAnalyzerBuilder()
+        {
 
-
+        }
         public MoodAnalyzerBuilder(string message)
         {
             this.message = message;
-        }
-        public MoodAnalyzerBuilder()
-        {
         }
         public string AnalyseMood()
         {
