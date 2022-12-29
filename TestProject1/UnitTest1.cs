@@ -154,5 +154,18 @@ namespace TestProject1
                 Assert.AreEqual("Field is not found", e.Message);
             }
         }
+        // TC-7.3
+        [TestMethod]
+        public void ChangeMoodDynamically_GivenNullMessage_ReturnException()
+        {
+            try
+            {
+                string except = MoodAnalyserFactory.ChangeMoodDynamically("message", null);
+            }
+            catch (MoodAnalyszerCustomException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
+        }
     }
 }
