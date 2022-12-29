@@ -6,6 +6,7 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
+        //TC3.1
         public void Given_NULL_Mood_Should_Throw_MoodAnalyszerCustomException()
         {
             try
@@ -20,6 +21,7 @@ namespace TestProject1
             }
         }
         [TestMethod]
+        //TC3.2
         public void Given_Empyt_Mood_Should_Throw_MoodAnalyszerCustomException()
         {
             try
