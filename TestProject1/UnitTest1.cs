@@ -1,4 +1,5 @@
 using MoodAnalyzer;
+using System.Security.Claims;
 
 namespace TestProject1
 {
@@ -44,6 +45,21 @@ namespace TestProject1
             object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyzerBuilder", "MoodAnalyzerBuilder");
             expected.Equals(obj);
             //Assert.AreEqual(expected,obj);
+
+        }
+        //TC4.2
+        [TestMethod]
+        public void GivenClassNameWhenImproper_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                object objFactory = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyzer.MoodAnalyzerBuildera", "MoodAnalyzerBuildera");
+            }
+            catch (MoodAnalyszerCustomException e)
+            {
+                //Assert.AreEqual(MoodAnalyszerCustomException.ExceptionType.NO_SUCH_CLASS.ToString(), objFactory);
+                Assert.AreEqual("Class not found", e.Message);
+            }
 
         }
     }
